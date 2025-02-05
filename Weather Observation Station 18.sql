@@ -81,3 +81,62 @@
 
 --doesn't look like it can do variables or column names at the moment.
 --
+-------------------------------------------02 04 2025----------------------------------
+
+--should be resting and using another keyboard.
+
+--but i am using some makeshift resting pads that are great
+
+--ok,
+--I currently believe that using the ABS() function will be crucial for this.
+
+--specifically since the Manhattan Distance involves two absolute values being calculated.
+
+--So, 
+--I have decided to play around with the absolute value.
+
+USE Weather_Observation_Station_2;
+SELECT *
+	FROM STATION;
+
+	--Quick SELECT * FROM STATION to get things started.
+
+	
+--USE Weather_Observation_Station_2;
+--SELECT ABS(LONG_W) AS ABS_LONG_W
+--	FROM STATION;
+
+	--ok, ABS() works better than expected.
+	--I thought because it was explained as ABS(Number),
+	--that it couldn't be a whole field but one cell of the field.
+
+--well, now I believe that I have succeeded in clearing out my only concern.
+
+--let me start to build the rest of the query.
+
+--ok,
+
+--right,
+--i now believe that I am going to need to test if I can do a function within the ABS() function.
+
+--USE Weather_Observation_Station_2;
+--SELECT ABS(MAX(LONG_W))
+--	FROM STATION;
+
+	--ok, I can do functions within ABS() function.
+
+	--cosding while tired is nice.
+	--I get to focus on very specific things.
+
+--ok,
+--I think next I am going to focus on narrowing down other aspects.
+
+--I will now attempt at getting "a" which is:
+--"the minimum value in Northern Latitude
+
+USE Weather_Observation_Station_2;
+SELECT MIN(LAT_N)
+	FROM STATION;
+
+	--Ok, I have aquired another part of the puzzle
+	--it is going to be interesting how I wrangle these up once I collect them (a,b,c,d).

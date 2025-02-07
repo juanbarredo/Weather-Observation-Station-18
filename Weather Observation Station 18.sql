@@ -135,8 +135,85 @@ SELECT *
 --"the minimum value in Northern Latitude
 
 USE Weather_Observation_Station_2;
-SELECT MIN(LAT_N)
+SELECT MIN(LAT_N) AS 'a MIN(LAT_N)'
 	FROM STATION;
 
 	--Ok, I have aquired another part of the puzzle
 	--it is going to be interesting how I wrangle these up once I collect them (a,b,c,d).
+
+---------------------------------02 06 2025----------------------------------------
+
+--Ok!
+--Super excited to work on this with my new cerakey keyboard.
+
+--I have 'a'
+
+--next, I will get 'b' which is "equal the minimum value in Western Longitude (LONG_W in STATION).
+
+USE Weather_Observation_Station_2;
+SELECT MIN(LONG_W) AS 'b MIN(LONG_W)'
+	FROM STATION;
+
+	--I just thought about the "round ... to a scale of 4 decimal places."
+	--I think I will leave that for the end.
+
+	--I fear that that will be what I will need to play at with at the end.
+	--have to place the functions in right order.
+
+--ok,
+--I have 'b'
+
+--next is 'c'
+--'maximum value in Northern Latirude (LAT_N in STATION).
+
+USE Weather_Observation_Station_2;
+SELECT MAX(LAT_N) AS 'c MAX(LAT_N)'
+	FROM STATION;
+
+	--Loved the little formatting I did to the column names
+	--I feel like it will come back around to bite me
+	--but why?
+
+--now, 
+--I need 'd' which is "equal ... maximum value in Western Latitude (LONG_W in STATION).
+
+USE	Weather_Observation_Station_2;
+SELECT MAX(LONG_W) AS 'd MAX(LONG)W)'
+	FROM STATION;
+
+	--sounds good!
+
+--next.
+
+--p1(a,b)
+--p2(c,d)
+
+--ok, now I have to intruduce the absolute value
+--which I thought I had already played with.
+	--yes,
+	--lines 122 to 124?
+
+--next,
+--absolute value and the subtraction and addition deal?
+--two steps in one.
+
+--let me break down the steps further here.
+
+--the first part of the Manhattan Distance is 
+-- |x1 - x2|
+--which is equivalent to
+-- |a - c|
+
+--let me try and get that.
+
+USE Weather_Observation_Station_2;
+SELECT ABS(MIN(LAT_N) - MAX(LAT_N)) AS '| a - c|'
+	FROM STATION;
+
+	--Ok!
+	--I had a great time.
+
+		--really learned a lot from working extra tired what, two days ago?
+
+		--now, I really am able to relax into taking time to break down queries 
+		--this is great pacing.

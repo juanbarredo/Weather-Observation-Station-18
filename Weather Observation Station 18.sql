@@ -178,7 +178,7 @@ SELECT MAX(LAT_N) AS 'c MAX(LAT_N)'
 --I need 'd' which is "equal ... maximum value in Western Latitude (LONG_W in STATION).
 
 USE	Weather_Observation_Station_2;
-SELECT MAX(LONG_W) AS 'd MAX(LONG)W)'
+SELECT MAX(LONG_W) AS 'd MAX(LONG_W)'
 	FROM STATION;
 
 	--sounds good!
@@ -217,3 +217,84 @@ SELECT ABS(MIN(LAT_N) - MAX(LAT_N)) AS '| a - c|'
 
 		--now, I really am able to relax into taking time to break down queries 
 		--this is great pacing.
+
+-------------------------------02 09 2025-----------------------------
+
+--lebeling my findings has been super useful when starting up again.
+
+-- I know confidently where to start.
+
+--I guess the labeling is takingplace through the "AS "COLUMN_NAME"" in the SELECT statement.
+--really helpfull.
+
+--ok,
+--so now I know that eth next step is
+
+--| Y1 - Y2 |
+--or,
+--|  - d |
+
+--USE Weather_Observation_Station_2;
+--SELECT ABS(
+--this is starting to get harder to do.
+
+--p1 = (x1,y1)
+--p2 = (x2,y2)
+
+--then
+
+--so, the problem is that the Manhattan Distance
+--doesn't include anything like MAX, MIN
+--it is just "the diatance between two point measured along axes at right angles."
+
+--and this problem is asking for 
+--or is rather including.
+--the MAX, MIN stuff.
+
+--ok,
+--let me then 
+--I see that the problem asks us to consider
+--P1 = (a, b)
+--P2 = (c, d)
+
+--p1 = (x1,y1)
+--p2 = (x2,y2)
+
+--a = x1
+--b = y1
+--c = x2
+--d = y2
+
+--right,
+--it is the way that the right angle is figured out
+--is through the |x1 - x2|
+--and the |y1 - y2|
+
+--therefore,
+--the next step is the | b - d |
+--the MIN, MAX stuff is just threatics.
+
+USE Weather_Observation_Station_2;
+SELECT ABS( MIN(LONG_W) - MAX(LONG_W)) AS '| b - d |'
+	FROM STATION;
+
+	--there is still a part of me that wants to delve deeper into why
+	--this is the Manhattan Distance.
+	--or I want to look closer at the Manhattan Distance.
+
+	--I will try to move on.
+
+--ok, I have the parts of the Manhattan Distance.
+--Let me now try to put them together.
+
+--I need to work it out or plan it out.
+
+
+USE Weather_Observation_Station_2;
+SELECT ABS(MIN(LAT_N) - MAX(LAT_N)) + ABS( MIN(LONG_W) - MAX(LONG_W)) AS 'Manhattan Distance'
+	FROM STATION;
+
+--ok!
+--Next time I will work on the "round it to a scale of 4 decimal places."
+
+

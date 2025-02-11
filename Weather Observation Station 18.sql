@@ -95,9 +95,9 @@
 --So, 
 --I have decided to play around with the absolute value.
 
-USE Weather_Observation_Station_2;
-SELECT *
-	FROM STATION;
+--USE Weather_Observation_Station_2;
+--SELECT *
+--	FROM STATION;
 
 	--Quick SELECT * FROM STATION to get things started.
 
@@ -134,9 +134,9 @@ SELECT *
 --I will now attempt at getting "a" which is:
 --"the minimum value in Northern Latitude
 
-USE Weather_Observation_Station_2;
-SELECT MIN(LAT_N) AS 'a MIN(LAT_N)'
-	FROM STATION;
+--USE Weather_Observation_Station_2;
+--SELECT MIN(LAT_N) AS 'a MIN(LAT_N)'
+--	FROM STATION;
 
 	--Ok, I have aquired another part of the puzzle
 	--it is going to be interesting how I wrangle these up once I collect them (a,b,c,d).
@@ -150,9 +150,9 @@ SELECT MIN(LAT_N) AS 'a MIN(LAT_N)'
 
 --next, I will get 'b' which is "equal the minimum value in Western Longitude (LONG_W in STATION).
 
-USE Weather_Observation_Station_2;
-SELECT MIN(LONG_W) AS 'b MIN(LONG_W)'
-	FROM STATION;
+--USE Weather_Observation_Station_2;
+--SELECT MIN(LONG_W) AS 'b MIN(LONG_W)'
+--	FROM STATION;
 
 	--I just thought about the "round ... to a scale of 4 decimal places."
 	--I think I will leave that for the end.
@@ -166,9 +166,9 @@ SELECT MIN(LONG_W) AS 'b MIN(LONG_W)'
 --next is 'c'
 --'maximum value in Northern Latirude (LAT_N in STATION).
 
-USE Weather_Observation_Station_2;
-SELECT MAX(LAT_N) AS 'c MAX(LAT_N)'
-	FROM STATION;
+--USE Weather_Observation_Station_2;
+--SELECT MAX(LAT_N) AS 'c MAX(LAT_N)'
+--	FROM STATION;
 
 	--Loved the little formatting I did to the column names
 	--I feel like it will come back around to bite me
@@ -177,9 +177,9 @@ SELECT MAX(LAT_N) AS 'c MAX(LAT_N)'
 --now, 
 --I need 'd' which is "equal ... maximum value in Western Latitude (LONG_W in STATION).
 
-USE	Weather_Observation_Station_2;
-SELECT MAX(LONG_W) AS 'd MAX(LONG_W)'
-	FROM STATION;
+--USE	Weather_Observation_Station_2;
+--SELECT MAX(LONG_W) AS 'd MAX(LONG_W)'
+--	FROM STATION;
 
 	--sounds good!
 
@@ -206,9 +206,9 @@ SELECT MAX(LONG_W) AS 'd MAX(LONG_W)'
 
 --let me try and get that.
 
-USE Weather_Observation_Station_2;
-SELECT ABS(MIN(LAT_N) - MAX(LAT_N)) AS '| a - c|'
-	FROM STATION;
+--USE Weather_Observation_Station_2;
+--SELECT ABS(MIN(LAT_N) - MAX(LAT_N)) AS '| a - c|'
+--	FROM STATION;
 
 	--Ok!
 	--I had a great time.
@@ -274,9 +274,9 @@ SELECT ABS(MIN(LAT_N) - MAX(LAT_N)) AS '| a - c|'
 --the next step is the | b - d |
 --the MIN, MAX stuff is just threatics.
 
-USE Weather_Observation_Station_2;
-SELECT ABS( MIN(LONG_W) - MAX(LONG_W)) AS '| b - d |'
-	FROM STATION;
+--USE Weather_Observation_Station_2;
+--SELECT ABS( MIN(LONG_W) - MAX(LONG_W)) AS '| b - d |'
+--	FROM STATION;
 
 	--there is still a part of me that wants to delve deeper into why
 	--this is the Manhattan Distance.
@@ -290,11 +290,39 @@ SELECT ABS( MIN(LONG_W) - MAX(LONG_W)) AS '| b - d |'
 --I need to work it out or plan it out.
 
 
-USE Weather_Observation_Station_2;
-SELECT ABS(MIN(LAT_N) - MAX(LAT_N)) + ABS( MIN(LONG_W) - MAX(LONG_W)) AS 'Manhattan Distance'
-	FROM STATION;
+--USE Weather_Observation_Station_2;
+--SELECT ABS(MIN(LAT_N) - MAX(LAT_N)) + ABS( MIN(LONG_W) - MAX(LONG_W)) AS 'Manhattan Distance'
+--	FROM STATION;
 
 --ok!
 --Next time I will work on the "round it to a scale of 4 decimal places."
 
+------------------------------02 10 2025------------------------------------------
+
+--I am so scared of the next few steps
+
+--but I now have to scale of 4 decimal places.
+
+--so, I think it will be (7, 4) or lol (10,4)
+
+--USE Weather_Observation_Station_2;
+--SELECT CAST(ABS(MIN(LAT_N) - MAX(LAT_N)) + ABS( MIN(LONG_W) - MAX(LONG_W)) AS DECIMAL(10,4)) AS '4 decimal places'
+--	FROM STATION;
+
+	--next is the rounding.
+	--which I totally missed just now when re-reading the prompt.
+
+USE Weather_Observation_Station_2 
+SELECT ROUND(CAST(ABS(MIN(LAT_N) - MAX(LAT_N)) + ABS( MIN(LONG_W) - MAX(LONG_W)) AS DECIMAL(10,4)), 4)  AS 'Manhattan Distance rounded to a scale of 4 decimal places'--i am now thinking about the ROUNDing going on.
+	FROM STATION;--I am completely lost at this point.
+
+	--I am now thinking that it has to be (10,4) when doing rounding.
+	--right?  is this a house rule?
+
+--wow, I got the right answer.
+
+--I tried both (10,4) and (7,4).
+--both were correct *this* time.
+
+--it wouldn't have mattered. in this case.
 
